@@ -20,14 +20,14 @@
 
 ## ⚙️ How It Works
 
-- **Routing & Navigation**
+- **Routing & Navigation**: 
 The app uses React Router v6 to handle category-based navigation. Each category (e.g., Business, Sports) has its own route (e.g., /business, /sports) which renders the News component with the selected category.
 
-- **Country Selection**
+- **Country Selection**:
 A dropdown in the navbar allows users to switch between countries (e.g., India, USA, UK). Selecting a country updates the country state in the App component, which is passed down as a prop to the News component. The flag icon is dynamically fetched using FlagsAPI.
 
-- **Fetching News**
+- **Fetching News**:
 The News component fetches top headlines based on the selected category and country using static JSON endpoints from https://saurav.tech/NewsAPI.
 
-- **Component Re-rendering**
+- **Component Re-rendering**:
 Changing either the route or the selected country causes the News component to re-fetch data and display updated articles. React's key prop ensures the component re-renders correctly on prop change.
