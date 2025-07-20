@@ -11,10 +11,9 @@ const NewsCard = (props) => {
                         position: 'absolute',
                         right: '0'
                     }
-                    }> 
-                        <span className="badge rounded-pill bg-danger"> {source} </span>
+                    }><span className="badge rounded-pill bg-danger"> {source} </span>
                     </div>
-                    <img src={!imageUrl ? "https://fdn.gsmarena.com/imgroot/news/21/08/xiaomi-smart-home-india-annoucnements/-476x249w4/gsmarena_00.jpg" : imageUrl} className="card-img-top" alt="..." />
+                    <img src={!imageUrl ? "https://www.google.com/url?sa=i&url=https%3A%2F%2Fcommons.wikimedia.org%2Fwiki%2FFile%3AImage_not_available.png&psig=AOvVaw1KjcGpaAO4bQrj5UGzJwa-&ust=1753092298562000&source=images&cd=vfe&opi=89978449&ved=0CBUQjRxqFwoTCLizhvSXy44DFQAAAAAdAAAAABAE" : imageUrl} className="card-img-top" alt="..." />
                     <div className="card-body">
                         <h5 className="card-title">{title}  </h5>
                         <p className="card-text">{description}</p>
