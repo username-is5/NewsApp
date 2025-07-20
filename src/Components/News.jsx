@@ -21,7 +21,7 @@ const News = (props) => {
     props.setProgress(100)
   }
    useEffect(() => {
-        document.title = `${capitalizeFirstLetter(props.category)} - NewsWave`;
+        document.title = `${props.country.toUpperCase()} - ${capitalizeFirstLetter(props.category)} - NewsWave`;
         updateNews(); 
     }, [])
 

@@ -1,20 +1,33 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-# React + Vite
+# 📰 NewsWave - React News App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**NewsWave** is a responsive news web application built using React and a NewsAPI. It allows users to browse top headlines from various categories and switch between countries using a dropdown with flags.
 
-Currently, two official plugins are available:
+## 🌐 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- 📁 Multiple categories: Business, Entertainment, Sports, Technology, etc.
+- 🌍 Country selection
+- ⚡️ React Router v6 for seamless navigation
+- 📦 Fully functional using React + Bootstrap
+- 📱 Responsive design for mobile & desktop
 
-## Expanding the ESLint configuration
+## 🚀 Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-=======
-# NewsApp
->>>>>>> 0727acb1b7d05d2a9fd0d7ac42fa59cef6755eca
-=======
-# NewsApp
->>>>>>> b9e46dd369836b353d2fb80334d6ed9f9e77a8fc
+- React with Vite
+- React Router v6
+- Bootstrap 5 & Bootstrap Icons
+- NewsAPI : https://saurav.tech/NewsAPI/top-headlines/category/general/in.json
+- Country flag API: [flagsapi.com](https://flagsapi.com)
+
+## ⚙️ How It Works
+
+- **Routing & Navigation**
+The app uses React Router v6 to handle category-based navigation. Each category (e.g., Business, Sports) has its own route (e.g., /business, /sports) which renders the News component with the selected category.
+
+- **Country Selection**
+A dropdown in the navbar allows users to switch between countries (e.g., India, USA, UK). Selecting a country updates the country state in the App component, which is passed down as a prop to the News component. The flag icon is dynamically fetched using FlagsAPI.
+
+- **Fetching News**
+The News component fetches top headlines based on the selected category and country using static JSON endpoints from https://saurav.tech/NewsAPI.
+
+- **Component Re-rendering**
+Changing either the route or the selected country causes the News component to re-fetch data and display updated articles. React's key prop ensures the component re-renders correctly on prop change.

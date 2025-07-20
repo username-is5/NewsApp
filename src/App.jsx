@@ -7,24 +7,24 @@ import './App.css';
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 function App() {
   const [progress, setProgress] = useState(0)
+  const [country, setCountry] = useState("in")
   return (
     <>
     <Router>
-      <Navbar/>
+      <Navbar country={country} setCountry={setCountry}/>
       <LoadingBar
         height={3}
         color='#f11946'
         progress={progress} 
       />
       <Routes>
-          <Route exact path="/" element={<News setProgress={setProgress} key="general" country="in" category="general" />} />
-          <Route exact path="/business" element={<News setProgress={setProgress} key="business" country="in" category="business" />} />
-          <Route exact path="/entertainment" element={<News setProgress={setProgress} key="entertainment" country="in" category="entertainment" />} />
-          <Route exact path="/general" element={<News setProgress={setProgress} key="general2" country="in" category="general" />} />
-          <Route exact path="/health" element={<News setProgress={setProgress} key="health" country="in" category="health" />} />
-          <Route exact path="/science" element={<News setProgress={setProgress} key="science" country="in" category="science" />} />
-          <Route exact path="/sports" element={<News setProgress={setProgress} key="sports" country="in" category="sports" />} />
-          <Route exact path="/technology" element={<News setProgress={setProgress} key="technology" country="in" category="technology" />} />
+          <Route exact path="/" element={<News setProgress={setProgress} key={`general-${country}`} country={country} category="general" />} />
+          <Route exact path="/business" element={<News setProgress={setProgress} key={`business-${country}`} country={country} category="business" />} />
+          <Route exact path="/entertainment" element={<News setProgress={setProgress} key={`entertainmentl-${country}`} country={country} category="entertainment" />} />
+          <Route exact path="/health" element={<News setProgress={setProgress} key={`health-${country}`} country={country} category="health" />} />
+          <Route exact path="/science" element={<News setProgress={setProgress} key={`science-${country}`}country={country} category="science" />} />
+          <Route exact path="/sports" element={<News setProgress={setProgress} key={`sportsl-${country}`} country={country} category="sports" />} />
+          <Route exact path="/technology" element={<News setProgress={setProgress} key={`technology-${country}`} country={country} category="technology" />} />
       </Routes>
     </Router>
     </>
