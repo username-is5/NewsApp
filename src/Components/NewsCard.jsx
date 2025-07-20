@@ -1,7 +1,9 @@
 import React from 'react'
-
+import noimg from '/noimg.jpg'
 const NewsCard = (props) => {
   let {title, description, imageUrl, newsUrl, author, date, source } = props;
+  const secureImageUrl = imageUrl?.startsWith('http://') ? imageUrl.replace('http://', 'https://') : imageUrl;
+  const secureNewsUrl = newsUrl?.startsWith('http://') ? newsUrl.replace('http://', 'https://') : newsUrl;
   return (
     <div className="my-3">
                 <div className="card">
@@ -13,12 +15,20 @@ const NewsCard = (props) => {
                     }
                     }><span className="badge rounded-pill bg-danger"> {source} </span>
                     </div>
-                    <img src={!imageUrl ? "https://www.google.com/url?sa=i&url=https%3A%2F%2Fcommons.wikimedia.org%2Fwiki%2FFile%3AImage_not_available.png&psig=AOvVaw1KjcGpaAO4bQrj5UGzJwa-&ust=1753092298562000&source=images&cd=vfe&opi=89978449&ved=0CBUQjRxqFwoTCLizhvSXy44DFQAAAAAdAAAAABAE" : imageUrl} className="card-img-top" alt="..." />
+                    <img 
+                        src={secureImageUrl && secureImageUrl.startsWith('http') ? secureImageUrl : noimg}
+                        onError={(e) => {
+                            e.target.onerror = null;
+                            e.target.src = noimg;
+                        }}
+                        className="card-img-top" 
+                        alt="News" 
+                     />
                     <div className="card-body">
                         <h5 className="card-title">{title}  </h5>
                         <p className="card-text">{description}</p>
                         <p className="card-text"><small className="text-muted">By {!author ? "Unknown" : author} on  {new Date(date).toGMTString()}</small></p>
-                        <a rel="noreferrer" href={newsUrl} target="_blank" className="btn btn-sm btn-dark">Read More</a>
+                        <a rel="noreferrer" href={newsUrl} target="_blank" className="text-light fw-bold btn btn-sm btn-info">Read More</a>
                     </div>
                 </div>
             </div>

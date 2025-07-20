@@ -10,11 +10,15 @@ const News = (props) => {
     } 
 
   const updateNews= async()=>{
+    props.setProgress(10)
     const url = `https://saurav.tech/NewsAPI/top-headlines/category/${props.category}/${props.country}.json`;
+    props.setProgress(30)
     const response = await fetch(url);
+    props.setProgress(70)
     const data = await response.json();
     setArticles(data.articles);  
     setTotal(data.totalResults);
+    props.setProgress(100)
   }
    useEffect(() => {
         document.title = `${capitalizeFirstLetter(props.category)} - NewsWave`;
@@ -24,15 +28,15 @@ const News = (props) => {
   return (
     <div>
        <h1 className="text-center" style={{ margin: '35px 0px', marginTop: '50px' }}>NewsWave - Top {capitalizeFirstLetter(props.category)} Headlines</h1>
-                    <div className="container">
-                    <div className="row">
-                        {articles.map((element) => {
-                            return <div className="col-md-4" key={element.url}>
-                                <NewsCard title={element.title ? element.title : ""} description={element.description ? element.description : ""} imageUrl={element.urlToImage} newsUrl={element.url} author={element.author} date={element.publishedAt} source={element.source.name} />
-                            </div>
-                        })}
+        <div className="container">
+            <div className="row">
+                {articles.map((element) => {
+                    return <div className="col-md-4" key={element.url}>
+                         <NewsCard title={element.title ? element.title : ""} description={element.description ? element.description : ""} imageUrl={element.urlToImage} newsUrl={element.url} author={element.author} date={element.publishedAt} source={element.source.name} />
                     </div>
-                    </div> 
+                })}
+            </div>
+        </div> 
     </div>
   )
 }
