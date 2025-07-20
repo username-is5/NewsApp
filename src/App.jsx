@@ -3,6 +3,7 @@ import Navbar from "./Components/Navbar"
 import NewsCard from "./Components/NewsCard"
 import News from "./Components/News";
 import LoadingBar from "react-top-loading-bar"
+import './App.css';
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 function App() {
   const [progress, setProgress] = useState(0)

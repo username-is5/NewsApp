@@ -27,11 +27,11 @@ const News = (props) => {
 
   return (
     <div>
-       <h1 className="text-center" style={{ margin: '35px 0px', marginTop: '50px' }}>NewsWave - Top {capitalizeFirstLetter(props.category)} Headlines</h1>
+       <h1 className="text-center" style={{ margin: '35px 0px', marginTop: '90px' }}>NewsWave - Top {capitalizeFirstLetter(props.category)} Headlines</h1>
         <div className="container">
             <div className="row">
                 {articles.map((element) => {
-                    return <div className="col-md-4" key={element.url}>
+                    return <div className="col-md-4 mb-5 d-flex" key={element.url}>
                          <NewsCard title={element.title ? element.title : ""} description={element.description ? element.description : ""} imageUrl={element.urlToImage} newsUrl={element.url} author={element.author} date={element.publishedAt} source={element.source.name} />
                     </div>
                 })}
