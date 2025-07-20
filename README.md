@@ -31,3 +31,6 @@ The News component fetches top headlines based on the selected category and coun
 
 - **Component Re-rendering**:
 Changing either the route or the selected country causes the News component to re-fetch data and display updated articles. React's key prop ensures the component re-renders correctly on prop change.
+
+
+[![Live Demo-Vercel](https://img.shields.io/badge/Deployed-Vercel-brightgreen)](https://news-wave-ak.vercel.app)
