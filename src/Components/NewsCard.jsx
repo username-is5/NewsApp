@@ -1,4 +1,3 @@
-import React from 'react'
 import noimg from '/noimg.jpg'
 const NewsCard = (props) => {
   let {title, description, imageUrl, newsUrl, author, date, source } = props;

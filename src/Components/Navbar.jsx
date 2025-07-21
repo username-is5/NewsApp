@@ -1,4 +1,3 @@
-import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 const Navbar = ({ country, setCountry }) => {
@@ -20,36 +19,86 @@ const Navbar = ({ country, setCountry }) => {
 
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-            <li className="nav-item fw-bold">
-              <NavLink className="nav-link" to="/">Home</NavLink>
+           <li className="nav-item fw-bold">
+              <NavLink className="nav-link" to="/">
+                {({ isActive }) => (
+                  <>
+                    <i className={`bi ${isActive ? 'bi-newspaper' : 'bi-newspaper'} me-1 ms-1 text-white`}></i>
+                    Home
+                  </>
+                )}
+              </NavLink>
             </li>
             <li className="nav-item fw-bold">
-              <NavLink className="nav-link" to="/business">Business</NavLink>
+              <NavLink className="nav-link" to="/business">
+                {({ isActive }) => (
+                  <>
+                    <i className={`bi ${isActive ? 'bi-briefcase-fill' : 'bi-briefcase'} me-1 ms-1 text-white`}></i>
+                    Business
+                  </>
+                )}
+              </NavLink>
             </li>
             <li className="nav-item fw-bold">
-              <NavLink className="nav-link" to="/entertainment">Entertainment</NavLink>
+              <NavLink className="nav-link" to="/entertainment">
+                {({ isActive }) => (
+                  <>
+                    <i className={`bi ${isActive ? 'bi-film' : 'bi-film'} me-1 ms-1 text-white`}></i>
+                    Entertainment
+                  </>
+                )}
+              </NavLink>
             </li>
             <li className="nav-item fw-bold">
-              <NavLink className="nav-link" to="/health">Health</NavLink>
+              <NavLink className="nav-link" to="/health">
+                {({ isActive }) => (
+                  <>
+                    <i className={`bi ${isActive ? 'bi-heart-pulse-fill' : 'bi-heart-pulse'} me-1 ms-1 text-white`}></i>
+                    Health
+                  </>
+                )}
+              </NavLink>
             </li>
             <li className="nav-item fw-bold">
-              <NavLink className="nav-link" to="/science">Science</NavLink>
+              <NavLink className="nav-link" to="/science">
+                {({ isActive }) => (
+                  <>
+                    <i className={`bi ${isActive ? 'bi-flask-fill' : 'bi-flask'} me-1 ms-1 text-white`}></i>
+                    Science
+                  </>
+                )}
+              </NavLink>
             </li>
             <li className="nav-item fw-bold">
-              <NavLink className="nav-link" to="/sports">Sports</NavLink>
+              <NavLink className="nav-link" to="/sports">
+                {({ isActive }) => (
+                  <>
+                    <i className={`bi ${isActive ? 'bi-trophy-fill' : 'bi-trophy'} me-1 ms-1 text-white`}></i>
+                    Sports
+                  </>
+                )}
+              </NavLink>
             </li>
             <li className="nav-item fw-bold">
-              <NavLink className="nav-link" to="/technology">Technology</NavLink>
+              <NavLink className="nav-link" to="/technology">
+                {({ isActive }) => (
+                  <>
+                    <i className={`bi ${isActive ? 'bi-cpu-fill' : 'bi-cpu'} me-1 ms-1 text-white`}></i>
+                    Technology
+                  </>
+                )}
+              </NavLink>
             </li>
           </ul>
 
           <div style={{ marginLeft: "auto", marginRight: "10px" }}>
-            <i className="bi bi-geo-alt-fill text-white me-2" style={{ fontSize: '1.2rem' }}></i>
+            <i className="bi bi-geo-alt-fill text-white me-2" style={{ fontSize: '1.5rem' }}></i>
             <img
               src={`https://flagsapi.com/${country.toUpperCase()}/flat/64.png`}
-              width="30"
+              height="35"
+              width="35"
               className="me-3"
-              style={{ borderRadius: "3px", marginLeft: "3px"}}
+              style={{ borderRadius: "3px", marginLeft: "3px", marginBottom: "2px"}}
               referrerPolicy="no-referrer"/>
             <select
               onChange={handleCountryChange}
@@ -57,8 +106,9 @@ const Navbar = ({ country, setCountry }) => {
               style={{
                 padding: "5px 10px",
                 borderRadius: "5px",
-                fontSize: "1rem",}}
-            >
+                fontSize: "1rem",
+                }}
+              >
               <option disabled value="">🌍 Select Country</option>
               <option value="au">Australia</option>
               <option value="fr">France</option>

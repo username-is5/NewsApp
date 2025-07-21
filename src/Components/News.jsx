@@ -1,9 +1,8 @@
-import React, {useEffect, useState} from 'react'
+import {useEffect, useState} from 'react'
 import PropTypes from 'prop-types'
 import NewsCard from './NewsCard';
 const News = (props) => {
   const [articles,setArticles]= useState([])
-  const [totalResults,setTotal]=useState(0)
 
   const capitalizeFirstLetter = (string) => {
         return string.charAt(0).toUpperCase() + string.slice(1);
@@ -17,7 +16,6 @@ const News = (props) => {
     props.setProgress(70)
     const data = await response.json();
     setArticles(data.articles);  
-    setTotal(data.totalResults);
     props.setProgress(100)
   }
    useEffect(() => {
@@ -27,7 +25,7 @@ const News = (props) => {
 
   return (
     <div>
-       <h1 className="text-center" style={{ margin: '35px 0px', marginTop: '90px' }}>NewsWave - Top {capitalizeFirstLetter(props.category)} Headlines</h1>
+       <h1 className="text-center fw-bold shadow-sm" style={{ fontFamily: 'Arial',margin: '35px 0px', marginTop: '90px' }}>NewsWave - Top {capitalizeFirstLetter(props.category)} Headlines</h1>
         <div className="container">
             <div className="row">
                 {articles.map((element) => {
